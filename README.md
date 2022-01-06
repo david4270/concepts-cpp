@@ -9,13 +9,13 @@ Project topics can be changed in planning stage.
 ## **Basic**
 Folders with 'basic' prefix have micro projects with basic C++ concepts and practices.
 
-**basic-1**: calculate two doubles
+**_basic-1_**: calculate two doubles
 
-**basic-2**: basic introduction to classes
+**_basic-2_**: basic introduction to classes
 
-**basic-3**: calculator using stringstream
+**_basic-3_**: calculator using stringstream
 
-**basic-4**: classes which are connecting each other like linked lists **[WIP]**
+**_basic-4_**: classes which are connecting each other like linked lists **[WIP]**
 
 basic-5: operator overloading with complex number **[planned]**
 
