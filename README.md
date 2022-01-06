@@ -2,6 +2,7 @@
 PEY is a great time to bring back my unused skills - so I've decided to work on C++, and some more stuff. Seems like first-year level lab? Well, better re-start late than never!
 
 Project topics can be changed in planning stage.
+
 **[WIP]** - working in progress
 
 **[planned]** - planned exercise
