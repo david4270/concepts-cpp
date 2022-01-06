@@ -10,7 +10,7 @@ struct _birthday {int yr, mo, day;};
 
 class PersonalInfo{
     private:
-        PersonalInfo * next;
+        //PersonalInfo * next;
         string name;
         struct _birthday * bd_ptr;
         bool isMarried;

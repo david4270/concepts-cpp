@@ -26,3 +26,21 @@ PersonalInfo::PersonalInfo(const PersonalInfo & src){
     bd_ptr -> mo = src.bd_ptr -> mo;
     bd_ptr -> day = src.bd_ptr -> day;
 }
+
+PersonalInfo::~PersonalInfo(){
+    delete bd_ptr;
+}
+
+void PersonalInfo::setName(string n){
+    name = n;
+}
+
+void PersonalInfo::setBirthday(int y, int m, int d){
+    bd_ptr -> yr = y;
+    bd_ptr -> mo = m;
+    bd_ptr -> day = d;
+}
+
+void PersonalInfo::print(){
+    cout << "Name: " << name << " , Birthday: " << bd_ptr -> yr << "/" << bd_ptr -> mo << "/" << bd_ptr -> day << endl;
+}

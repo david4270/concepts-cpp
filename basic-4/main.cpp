@@ -8,6 +8,10 @@
 using namespace std;
 
 int main(){
+
+    PersonalInfo David("David Song", 1999, 7, 24);
+    David.print();
+    
     return 0;
 }
 
