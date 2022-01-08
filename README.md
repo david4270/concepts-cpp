@@ -10,7 +10,7 @@ Project topics can be changed in planning stage.
 [need details] - will be updated with specifics
 
 ## **Basic**
-Folders with 'basic' prefix have micro projects with basic C++ concepts and practices.
+Folders with 'basic' prefix have micro projects with basic C++ concepts and practices. Used concepts from second year introductory programming course (ECE244).
 
 **_basic-1_**: calculate two doubles
 

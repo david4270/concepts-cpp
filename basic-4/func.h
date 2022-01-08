@@ -6,22 +6,45 @@
 
 using namespace std;
 
-struct _birthday {int yr, mo, day;};
+struct birthday {int yr, mo, day;};
+
+class InfoList{
+    private:
+        PersonalInfo * head;
+    public:
+        InfoList();
+        InfoList(const InfoList & src);
+        ~InfoList();
+
+        InfoList & operator=(const InfoList & rhs);
+
+        void print() const;
+};
 
 class PersonalInfo{
     private:
-        //PersonalInfo * next;
+        PersonalInfo * next;
         string name;
-        struct _birthday * bd_ptr;
+        struct birthday * bd_ptr;
         bool isMarried;
+        PersonalInfo(const PersonalInfo & src);
+        PersonalInfo& operator=(const PersonalInfo & rhs);
     public:
         PersonalInfo();
         PersonalInfo(string n, int y, int m, int d);
-        PersonalInfo(const PersonalInfo & src);
         ~PersonalInfo();
+
+        birthday& getBirthday(); 
+        const birthday& getBirthday() const; 
+        PersonalInfo * getNext();
+        const PersonalInfo * getNext() const;
+
+        void setNext(PersonalInfo * item);
+        bool hasNext() const;
+
         void setName(string n);
         void setBirthday(int y, int m, int d);
-        void print();
+        void print() const;
 };
 
 #endif
