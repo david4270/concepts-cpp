@@ -18,9 +18,9 @@ Folders with 'basic' prefix have micro projects with basic C++ concepts and prac
 
 **_basic-3_**: calculator using stringstream
 
-**_basic-4_**: classes which are connecting each other like linked lists **[WIP]**
+**_basic-4_**: classes which are connecting each other like linked lists - personal information
 
-basic-5: operator overloading with complex number **[planned]**
+**_basic-5_**: operator overloading with complex number **[WIP]**
 
 basic-6: recursive sorting algorithm(s) **[planned]**[need details]
 
