@@ -34,7 +34,7 @@ InfoList::~InfoList(){
     }
 }
 
-InfoList & InfoList::operator = (const InfoList & rhs){
+InfoList & InfoList::operator= (const InfoList & rhs){
     if (this == &rhs) return (*this);
 
     //Delete list of *this
@@ -204,7 +204,8 @@ PersonalInfo::PersonalInfo(string n, int y, int m, int d){
 PersonalInfo::PersonalInfo(string n, birthday * bpr){
     bd_ptr = new struct birthday;
     name = n;
-    bd_ptr = bpr;
+    setBirthday(bpr->yr, bpr->mo, bpr->day);
+    //bd_ptr = bpr;
     next = NULL;
 }
 
@@ -220,7 +221,8 @@ PersonalInfo::PersonalInfo(string n, int y, int m, int d, PersonalInfo * nxt){
 PersonalInfo::PersonalInfo(string n, birthday * bpr, PersonalInfo * nxt){
     bd_ptr = new struct birthday;
     name = n;
-    bd_ptr = bpr;
+    setBirthday(bpr->yr, bpr->mo, bpr->day);
+    //bd_ptr = bpr;
     next = nxt;
 }
 
