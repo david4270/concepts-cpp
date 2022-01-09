@@ -13,5 +13,6 @@ void findOccurrances(vector<size_t> &vec, string toAnalyze, string toFind);
 void bracketTester(vector<size_t> & leftBracketPos, vector<size_t> & rightBracketPos);
 void orderBrackets(vector<size_t> & leftBracketPos, vector<size_t> & rightBracketPos, vector<pair<size_t,size_t>> & bracketList);
 string calcProc(string inputLine);
+double calculator(string inputLine);
 
 #endif
