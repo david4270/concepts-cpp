@@ -8,19 +8,6 @@ using namespace std;
 
 struct birthday {int yr, mo, day;};
 
-class InfoList{
-    private:
-        PersonalInfo * head;
-    public:
-        InfoList();
-        InfoList(const InfoList & src);
-        ~InfoList();
-
-        InfoList & operator=(const InfoList & rhs);
-
-        void print() const;
-};
-
 class PersonalInfo{
     private:
         PersonalInfo * next;
@@ -32,10 +19,15 @@ class PersonalInfo{
     public:
         PersonalInfo();
         PersonalInfo(string n, int y, int m, int d);
+        PersonalInfo(string n, birthday * bpr);
+        PersonalInfo(string n, int y, int m, int d, PersonalInfo * nxt);
+        PersonalInfo(string n, birthday * bpr, PersonalInfo * nxt);
         ~PersonalInfo();
 
-        birthday& getBirthday(); 
-        const birthday& getBirthday() const; 
+        string getName();
+        const string getName() const;
+        birthday * getBirthday(); 
+        const birthday * getBirthday() const; 
         PersonalInfo * getNext();
         const PersonalInfo * getNext() const;
 
@@ -45,6 +37,27 @@ class PersonalInfo{
         void setName(string n);
         void setBirthday(int y, int m, int d);
         void print() const;
+};
+
+class InfoList{
+    private:
+        PersonalInfo * head;
+    public:
+        InfoList();
+        InfoList(const InfoList & src);
+        ~InfoList();
+
+        InfoList & operator=(const InfoList & rhs);
+
+        PersonalInfo * LocateInList(string n);
+        PersonalInfo * LocateInList(string n, int y, int m, int d);
+
+        void insertAtHead(PersonalInfo * nptr);
+        void insertAtTail(PersonalInfo * nptr);
+        void deleteInfo(string n);
+        void deleteInfo(string n, int y, int m, int d);
+
+        void print() const; //traverse and print list
 };
 
 #endif
