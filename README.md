@@ -20,9 +20,9 @@ Folders with 'basic' prefix have micro projects with basic C++ concepts and prac
 
 **_basic-4_**: classes which are connecting each other like linked lists - personal information
 
-**_basic-5_**: operator overloading with complex number **[WIP]**
+**_basic-5_**: operator overloading with complex number
 
-basic-6: recursive sorting algorithm(s) **[planned]**[need details]
+**_basic-6_**: recursive sorting algorithm(s) **[WIP]**[need details]
 
 basic-7: binary search tree **[planned]**[need details]
 
