@@ -1,12 +1,22 @@
 // Recursive sort. Use some of algo as well?
 
+//https://www.geeksforgeeks.org/sorting-algorithms/ 
+//Quicksort [V]
+//Mergesort
+//Heapsort
+//Radix sort
+//Selection sort
+//Bubble sort(recursive)
+//Insertion sort(recursive)
+//Counting sort
+
 #include <iostream>
 #include "func.h"
 
 using namespace std;
 
 int main(){
-
+    //put everything into while loop
     int * myArr;
     int tmp;
     int size = 10;
@@ -24,7 +34,26 @@ int main(){
     cout << endl;
 
     //Quicksort used
-    QuickSort(myArr, 1, size);
+    //QuickSort(myArr, 1, size);
+
+    //Mergesort used
+
+    //Heapsort used
+
+    //Radixsort used
+
+    //Selectionsort used
+
+    //Bubble sort(recursive)
+
+
+    //Insertion sort(recursive)
+
+
+    //Counting sort
+
+
+
 
     cout << "Your array is: ";
     for(int i = 0; i < size; i++){
@@ -43,8 +72,4 @@ int main(){
 // g++ -std=c++11 -c func.cpp 
 // g++ -std=c++11 main.o func.o -o main.exe
 
-//Mergesort
-//Heapsort
-//Quicksort
-//Radix sort
-//Selection sort
+
