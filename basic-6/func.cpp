@@ -79,7 +79,7 @@ void Merge(int* arr, int left, int middle, int right){
     int* rgtarr = new int[right-middle];
     int lftptr = 0;
     int rgtptr = 0;
-    int arrptr = 0;
+    int arrptr = left;
     
     for(int i = 0; i < middle-left+1; i++){
         lftarr[i] = arr[left+i];
@@ -106,11 +106,13 @@ void Merge(int* arr, int left, int middle, int right){
     while(lftptr < (middle-left+1)){
         cout << lftarr[lftptr] << " ";
         arr[arrptr] = lftarr[lftptr];
+        arrptr++;
         lftptr++;
     }
     while(rgtptr < (right-middle)){
         cout << rgtarr[rgtptr] << " ";
         arr[arrptr] = rgtarr[rgtptr];
+        arrptr++;
         rgtptr++;
     }
     cout << endl;
