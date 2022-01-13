@@ -54,15 +54,15 @@ int SelectAndShuffule(int * arr, int left, int right){
 }
 
 /*
-<<Mergesort>>
+<<Mergesort>> Reference: https://www.geeksforgeeks.org/merge-sort/ and https://www.programiz.com/dsa/merge-sort
 Array given: [26,33,35,29,19,24,36]
     Get middle -> 0 + (6-0)/2 = 3 (index)
-    [26,33,35,29]        [19,24,36]
-    [26,33]  [35,29]     [19,24] [36]
-    [26] [33] [35] [29]  [19] [24] [36]
-    [26,33]    [29,35]     [19,24]  [36] -> create sorted array and merge
-      [26,29,33,35]          [19,24,36]  -> create sorted array and merge
-        [19,24,26,29,33,35,36]           -> create sorted array and merge
+    [26,33,35,29]        [19,24,36]      -> Divided
+    [26,33]  [35,29]     [19,24] [36]    -> Divided
+    [26] [33] [35] [29]  [19] [24] [36]  -> Divided
+    [26,33]    [29,35]     [19,24]  [36] -> created sorted array and merge
+      [26,29,33,35]          [19,24,36]  -> created sorted array and merge
+        [19,24,26,29,33,35,36]           -> created sorted array and merge
 */
 
 void MergeSort(int* arr, int left, int right){
@@ -123,7 +123,21 @@ void Merge(int* arr, int left, int middle, int right){
     rgtarr = NULL;
 }
 
-//Heapsort
+/*
+<<Heapsort>> Reference: https://www.geeksforgeeks.org/heap-sort/ and https://medium.com/basecs/heapify-all-the-things-with-heap-sort-55ee1c93af82 
+Array given: [26,33,35,29,19,24,36]
+<>: removed (pushed back). (): heapify units. []: last unit - move to top
+     (26)        |  Heapify   |       <36>         |             |       (26)     |  Heapify  |      <35>     |
+  33      35     |   ------>  |    33      35      |   ------->  |    33     (35) | ------->  |   33      26  |
+29  19  24  (36) |            |  29  19  24  [26]  |             |  29  19  24    |           | 29  19 [24]   |
+                            [[26],33,35,29,19,24,<36>]                                   [[24],33,26,29,19,<35,36>]
+
+         |     (24)     | Heapify |        33     |  Heapify |     <33>    |
+ ------> |  (33)    26  | ------> |   (24)    26  |  ------> |   29    26  |  ...
+         | 29  19       |         | (29) 19       |          | 24 [19]     |
+                                                        [[19],29,26,24,<33,35,36>]
+*/
+
 
 
 //Radix sort
