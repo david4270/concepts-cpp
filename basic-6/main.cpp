@@ -34,10 +34,10 @@ int main(){
     cout << endl;
 
     //Quicksort used
-    //QuickSort(myArr, 1, size);
+    //QuickSort(myArr, 0, size-1);
 
     //Mergesort used
-
+    MergeSort(myArr,0,size-1);
     //Heapsort used
 
     //Radixsort used
@@ -55,7 +55,7 @@ int main(){
 
 
 
-    cout << "Your array is: ";
+    cout << "Your sorted array is: ";
     for(int i = 0; i < size; i++){
         cout << myArr[i] << " ";
     }

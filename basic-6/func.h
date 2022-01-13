@@ -9,7 +9,8 @@ int SelectAndShuffule(int * arr, int left, int right);
 
 
 //Mergesort
-
+void MergeSort(int* arr, int left, int right);
+void Merge(int* arr, int left, int middle, int right);
 
 //Heapsort
 

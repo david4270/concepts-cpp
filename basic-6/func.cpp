@@ -24,7 +24,7 @@ Select and shuffle:
 
 Quicksort for [24,19]
 Quicksort for [29,33,35,36]
-
+...
 (Proceeds recursively)
 */
 
@@ -55,10 +55,71 @@ int SelectAndShuffule(int * arr, int left, int right){
 
 /*
 <<Mergesort>>
-
-
+Array given: [26,33,35,29,19,24,36]
+    Get middle -> 0 + (6-0)/2 = 3 (index)
+    [26,33,35,29]        [19,24,36]
+    [26,33]  [35,29]     [19,24] [36]
+    [26] [33] [35] [29]  [19] [24] [36]
+    [26,33]    [29,35]     [19,24]  [36] -> create sorted array and merge
+      [26,29,33,35]          [19,24,36]  -> create sorted array and merge
+        [19,24,26,29,33,35,36]           -> create sorted array and merge
 */
 
+void MergeSort(int* arr, int left, int right){
+    int middle = left + (right - left)/2;
+    if(right <= left) return;
+    cout << middle << endl;
+    MergeSort(arr,left,middle);
+    MergeSort(arr,middle+1,right);
+    Merge(arr,left,middle,right);
+}
+
+void Merge(int* arr, int left, int middle, int right){
+    int* lftarr = new int[middle-left+1];
+    int* rgtarr = new int[right-middle];
+    int lftptr = 0;
+    int rgtptr = 0;
+    int arrptr = 0;
+    
+    for(int i = 0; i < middle-left+1; i++){
+        lftarr[i] = arr[left+i];
+    }
+
+    for(int i = 0; i < right-middle; i++){
+        rgtarr[i] = arr[middle+1+i];
+    }
+
+    while((lftptr < (middle-left+1)) && (rgtptr < (right-middle))){
+        if(lftarr[lftptr] <= rgtarr[rgtptr]){
+            cout << lftarr[lftptr] << " ";
+            arr[arrptr] = lftarr[lftptr];
+            lftptr++;
+        }
+        else{
+            cout << rgtarr[rgtptr] << " ";
+            arr[arrptr] = rgtarr[rgtptr];
+            rgtptr++;
+        }
+        arrptr++;
+    }
+
+    while(lftptr < (middle-left+1)){
+        cout << lftarr[lftptr] << " ";
+        arr[arrptr] = lftarr[lftptr];
+        lftptr++;
+    }
+    while(rgtptr < (right-middle)){
+        cout << rgtarr[rgtptr] << " ";
+        arr[arrptr] = rgtarr[rgtptr];
+        rgtptr++;
+    }
+    cout << endl;
+
+    delete [] lftarr;
+    delete [] rgtarr;
+    lftarr = NULL;
+    rgtarr = NULL;
+}
 
 //Heapsort
 
