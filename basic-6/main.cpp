@@ -45,9 +45,10 @@ int main(){
     //Radixsort used
 
     //Selectionsort used
+    SelectionSort(myArr,size);
 
     //Bubble sort(recursive)
-    BubbleSort(myArr,size);
+    //BubbleSort(myArr,size);
 
     //Insertion sort(recursive)
     //InsertionSort(myArr,size);

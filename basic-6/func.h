@@ -20,7 +20,7 @@ void HeapSort(int * arr, int size);
 
 
 //Selection sort
-
+void SelectionSort(int * arr, int size);
 
 //Bubble sort(recursive)
 void BubbleSort(int * arr, int size);

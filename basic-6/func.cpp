@@ -170,8 +170,37 @@ void HeapSort(int * arr, int size){
 //Radix sort
 
 
-//Selection sort
+/*
+<<Selection sort>> Reference: https://www.geeksforgeeks.org/selection-sort/
+Array given: [4,3,2,10,12,1,5,6]
+Round 1: Find minimum element of arr[0:7] and place at the beginning of arr[0:7]
+[1,3,2,10,12,4,5,6]
+Round 2: Find minimum element of arr[1:7] and place at the beginning of arr[1:7]
+[1,2,3,10,12,4,5,6]
+Round 3: Find minimum element of arr[2:7] and place at the beginning of arr[2:7]
+[1,2,3,10,12,4,5,6]
+Round 4: Find minimum element of arr[3:7] and place at the beginning of arr[3:7]
+[1,2,3,4,12,10,5,6]
+Round 5: Find minimum element of arr[4:7] and place at the beginning of arr[4:7]
+[1,2,3,4,5,10,12,6]
+Round 6: Find minimum element of arr[5:7] and place at the beginning of arr[5:7]
+[1,2,3,4,5,6,12,10]
+Round 7: Find minimum element of arr[6:7] and place at the beginning of arr[6:7]
+[1,2,3,4,5,6,10,12]
+*/
 
+void SelectionSort(int * arr, int size){
+    int minidx;
+    for (int i = 0; i < size-1; i++){
+        minidx = i;
+        for(int j = i+1; j< size; j++){
+            if(arr[minidx] > arr[j]){
+                minidx = j;
+            }
+        }
+        swap(arr[minidx], arr[i]);
+    }
+}
 
 /*
 <<Bubble sort(recursive)>> Reference: https://www.geeksforgeeks.org/recursive-bubble-sort/
