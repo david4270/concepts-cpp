@@ -30,7 +30,7 @@ void HeapSort(int * arr, int size);
 
 //Counting sort
 
-
+void CountingSort(int * arr, int size);
 
 
 #endif

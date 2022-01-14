@@ -179,8 +179,38 @@ void HeapSort(int * arr, int size){
 //Insertion sort(recursive)
 
 
-//Counting sort
+/*
+<<Counting sort>> Reference: https://www.geeksforgeeks.org/counting-sort/
+Array given: [2,6,4,2,3,4,1,2]
+c [0,1,3,1,2,0,1]
+c [0,1,4,5,7,7,8]
+b [1,2,2,2,3,4,4,6]
+*/
+void CountingSort(int * arr, int size){
+    int max = 1000;
+    int * c = new int [max]();
+    int * b = new int [size]();
 
+    for(int j=0; j<size; j++){
+        c[arr[j]] = c[arr[j]] + 1;
+    }
+    
+    for(int i=1; i<max; ++i){
+        c[i] = c[i] + c[i-1];
+    }
+
+    for(int j=0; j < size; j++){
+        b[c[arr[j]]-1] = arr[j];
+        c[arr[j]] = c[arr[j]] - 1;
+    }
+
+    for(int j=0; j<size; j++){
+        arr[j] = b[j];
+    }
+    
+    delete [] c;
+    c = NULL;
+}
 
 
 

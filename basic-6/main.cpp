@@ -40,8 +40,8 @@ int main(){
     //MergeSort(myArr,0,size-1);
 
     //Heapsort used
-    HeapSort(myArr,size);
-    
+    //HeapSort(myArr,size);
+
     //Radixsort used
 
     //Selectionsort used
@@ -53,7 +53,7 @@ int main(){
 
 
     //Counting sort
-
+    CountingSort(myArr,size);
 
 
 
