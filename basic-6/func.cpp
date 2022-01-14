@@ -176,12 +176,39 @@ void HeapSort(int * arr, int size){
 //Bubble sort(recursive)
 
 
-//Insertion sort(recursive)
+/*
+<<Insertion sort(recursive)>> Reference: https://www.geeksforgeeks.org/recursive-insertion-sort/ 
+Array given: [4,3,2,10,12,1,5,6]
+Compare with previous elements
+[4,(3),2,10,12,1,5,6]
+[3,4,(2),10,12,1,5,6]
+[2,3,4,(10),12,1,5,6]
+[2,3,4,10,(12),1,5,6]
+[2,3,4,10,12,(1),5,6]
+[1,2,3,4,10,12,(5),6]
+[1,2,3,4,5,10,12,(6)]
+[1,2,3,4,5,6,10,12]
+*/
+
+void InsertionSort(int * arr, int size){
+    if(size <= 1) return;
+
+    InsertionSort(arr,size-1);
+    int last = arr[size-1]; //backup last element of arr
+    int j = size-2;
+
+    while(j >=0 && arr[j] > last){ //while front element is larger
+        arr[j+1] = arr[j]; //update arr -> push back by 1
+        j--;
+    }
+    arr[j+1] = last;
+}
 
 
 /*
 <<Counting sort>> Reference: https://www.geeksforgeeks.org/counting-sort/
 Array given: [2,6,4,2,3,4,1,2]
+   0,1,2,3,4,5,6
 c [0,1,3,1,2,0,1]
 c [0,1,4,5,7,7,8]
 b [1,2,2,2,3,4,4,6]

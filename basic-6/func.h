@@ -26,7 +26,7 @@ void HeapSort(int * arr, int size);
 
 
 //Insertion sort(recursive)
-
+void InsertionSort(int * arr, int size);
 
 //Counting sort
 

@@ -50,10 +50,10 @@ int main(){
 
 
     //Insertion sort(recursive)
-
+    InsertionSort(myArr,size);
 
     //Counting sort
-    CountingSort(myArr,size);
+    //CountingSort(myArr,size);
 
 
 
