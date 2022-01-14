@@ -47,10 +47,10 @@ int main(){
     //Selectionsort used
 
     //Bubble sort(recursive)
-
+    BubbleSort(myArr,size);
 
     //Insertion sort(recursive)
-    InsertionSort(myArr,size);
+    //InsertionSort(myArr,size);
 
     //Counting sort
     //CountingSort(myArr,size);

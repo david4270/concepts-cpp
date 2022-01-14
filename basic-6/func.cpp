@@ -173,7 +173,37 @@ void HeapSort(int * arr, int size){
 //Selection sort
 
 
-//Bubble sort(recursive)
+/*
+<<Bubble sort(recursive)>> Reference: https://www.geeksforgeeks.org/recursive-bubble-sort/
+Array given: [4,3,2,10,12,1,5,6]
+Round 1 
+[(4,3),2,10,12,1,5,6] 4>3
+[3,(4,2),10,12,1,5,6] 4>2
+[3,2,(4,10),12,1,5,6] 4<10
+[3,2,4,(10,12),1,5,6] 10<12
+[3,2,4,10,(12,1),5,6] 12>1
+[3,2,4,10,1,(12,5),6] 12>5
+[3,2,4,10,1,5,(12,6)] 12>6
+Round 2
+[(3,2),4,10,1,5,6,12] 3>2
+[2,(3,4),10,1,5,6,12] 3<4
+[2,3,(4,10),1,5,6,12] 4<10
+[2,3,4,(10,1),5,6,12] 10>1
+[2,3,4,1,(10,5),6,12] 10>5
+[2,3,4,1,5,(10,6),12] 10>6
+[2,3,4,1,5,6,(10,12)] 10<12
+...
+*/
+
+void BubbleSort(int * arr, int size){
+    if(size == 1) return;
+    for(int i = 0; i < size-1; i++){
+        if(arr[i] > arr[i+1]){
+            swap(arr[i],arr[i+1]);
+        }
+    }
+    BubbleSort(arr,size-1);
+}
 
 
 /*
