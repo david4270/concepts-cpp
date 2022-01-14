@@ -16,7 +16,7 @@
 using namespace std;
 
 int main(){
-    //put everything into while loop
+    //put everything into while loop?
     int * myArr;
     int tmp;
     int size = 10;
@@ -37,9 +37,11 @@ int main(){
     //QuickSort(myArr, 0, size-1);
 
     //Mergesort used
-    MergeSort(myArr,0,size-1);
-    //Heapsort used
+    //MergeSort(myArr,0,size-1);
 
+    //Heapsort used
+    HeapSort(myArr,size);
+    
     //Radixsort used
 
     //Selectionsort used

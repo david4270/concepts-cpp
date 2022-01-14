@@ -124,21 +124,48 @@ void Merge(int* arr, int left, int middle, int right){
 }
 
 /*
-<<Heapsort>> Reference: https://www.geeksforgeeks.org/heap-sort/ and https://medium.com/basecs/heapify-all-the-things-with-heap-sort-55ee1c93af82 
+<<Heapsort>> Reference: https://www.geeksforgeeks.org/heap-sort/W
 Array given: [26,33,35,29,19,24,36]
 <>: removed (pushed back). (): heapify units. []: last unit - move to top
-     (26)        |  Heapify   |       <36>         |             |       (26)     |  Heapify  |      <35>     |
-  33      35     |   ------>  |    33      35      |   ------->  |    33     (35) | ------->  |   33      26  |
-29  19  24  (36) |            |  29  19  24  [26]  |             |  29  19  24    |           | 29  19 [24]   |
-                            [[26],33,35,29,19,24,<36>]                                   [[24],33,26,29,19,<35,36>]
+      26     | Rearrange |     (26)     | Rearrange |      <36>     | Swap  |     <35>   | Swap  |    (24)   |
+  33    (35) | --------> |   33    (36) | --------> |   33      26  | ----> |   33   26  | ----> |  (33)  26 | 
+29  24 (36)  |   i=2     | 29  24 35    |   i=0     | 29  24 [35]   |       | 29 [24]    |       | 29        |
 
-         |     (24)     | Heapify |        33     |  Heapify |     <33>    |
- ------> |  (33)    26  | ------> |   (24)    26  |  ------> |   29    26  |  ...
-         | 29  19       |         | (29) 19       |          | 24 [19]     |
-                                                        [[19],29,26,24,<33,35,36>]
+ Maxheap |    <33>   | Swap  |   <29>   | Swap  |   <26> | End   |  <24> |
+-------> |  24   26  | ----> | 24  [26] | ----> | 24     | ----> |       |
+         |[29]       |       |          |       |        |       |       |
+
 */
 
+void heapify(int * arr, int size, int idx){
+    int maxi = idx;
+    if(idx*2+1 < size && arr[idx*2+1] > arr[maxi]){
+        maxi = idx*2+1;
+    }
+    if(idx*2+2 < size && arr[idx*2+2] > arr[maxi]){
+        maxi = idx*2+2;
+    }
+    if(maxi != idx){
+        swap(arr[idx],arr[maxi]);
+        heapify(arr,size,maxi);
+    }
 
+}
+
+void HeapSort(int * arr, int size){
+    //Rearrange array (Rearrange)
+    for(int i = (size/2)-1; i>=0 ; i--){
+        heapify(arr,size,i);
+    }
+
+    for(int i = size-1; i>0; i--){
+        //Move maximum to the end of the array (Swap)
+        swap(arr[0],arr[i]);
+        //Max heapify (Maxheap)
+        heapify(arr,i,0);
+    }
+    
+}
 
 //Radix sort
 

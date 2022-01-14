@@ -13,7 +13,8 @@ void MergeSort(int* arr, int left, int right);
 void Merge(int* arr, int left, int middle, int right);
 
 //Heapsort
-
+void heapify(int * arr, int size, int idx);
+void HeapSort(int * arr, int size);
 
 //Radix sort
 
