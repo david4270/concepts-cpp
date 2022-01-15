@@ -24,7 +24,7 @@ Folders with 'basic' prefix have micro projects with basic C++ concepts and prac
 
 **_basic-6_**: recursive sorting algorithm(s)
 
-**_basic-7_**: binary search tree of numbers **[planned]**
+**_basic-7_**: binary search tree of numbers **[WIP]**
 
 basic-8: inheritance **[planned]**[need details]
 
