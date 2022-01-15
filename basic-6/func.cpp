@@ -32,8 +32,14 @@ Quicksort for [29,33,35,36]
 void QuickSort(int* arr, int left, int right){
     int pivot;
     pivot = SelectAndShuffule(arr,left,right);
+
     if(pivot > left) QuickSort(arr,left,pivot-1);
     if(pivot < right) QuickSort(arr,pivot+1,right);
+
+    for(int i = left; i < right; i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
 }
 
 int SelectAndShuffule(int * arr, int left, int right){
@@ -50,6 +56,9 @@ int SelectAndShuffule(int * arr, int left, int right){
     tmp = arr[left];
     arr[left] = arr[ls];
     arr[ls] = tmp;
+
+    
+
     return ls;
 }
 
@@ -147,8 +156,16 @@ void heapify(int * arr, int size, int idx){
     }
     if(maxi != idx){
         swap(arr[idx],arr[maxi]);
+
+        for(int i = 0; i < size; i++){
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+
         heapify(arr,size,maxi);
     }
+
+    
 
 }
 
@@ -220,6 +237,7 @@ void RadixSort(int * arr, int size){
     int maxi = getMaxSig(arr,size);
     for (int exp = 1; maxi/exp > 0; exp *=10){
         countRdxSort(arr,size,exp);
+
         for(int i = 0; i < size; i++){
             cout << arr[i] << " ";
         }
@@ -257,6 +275,11 @@ void SelectionSort(int * arr, int size){
             }
         }
         swap(arr[minidx], arr[i]);
+
+        for(int i = 0; i < size; i++){
+            cout << arr[i] << " ";
+        }
+        cout << endl;
     }
 }
 
@@ -289,6 +312,12 @@ void BubbleSort(int * arr, int size){
             swap(arr[i],arr[i+1]);
         }
     }
+
+    for(int i = 0; i < size; i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
     BubbleSort(arr,size-1);
 }
 
@@ -319,6 +348,11 @@ void InsertionSort(int * arr, int size){
         j--;
     }
     arr[j+1] = last;
+    
+    for(int i = 0; i < size; i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
 }
 
 
@@ -330,8 +364,10 @@ c [0,1,3,1,2,0,1]
 c [0,1,4,5,7,7,8]
 b [1,2,2,2,3,4,4,6]
 */
+
 void CountingSort(int * arr, int size){
     int max = 1000;
+
     int * c = new int [max]();
     int * b = new int [size]();
 
