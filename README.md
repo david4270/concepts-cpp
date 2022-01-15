@@ -33,7 +33,7 @@ basic-9: hash table **[planned]**[need details]
 ## **Intermediate**
 Folders with 'intermediate' prefix have mini projects with intermediate C++ concepts and practices.
 
-inheritance-1: inheritance project **[planned]**[need details]
+intermediate-1: inheritance project **[planned]**[need details]
 
 ## **Project**
 Folders with resume-level projects. Might make separated repository for each project. Will be updated once I feel like I am prepared enough to initiate project, and have some project idea.
