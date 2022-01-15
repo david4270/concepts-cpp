@@ -17,7 +17,9 @@ void heapify(int * arr, int size, int idx);
 void HeapSort(int * arr, int size);
 
 //Radix sort
-
+int getMaxSig(int* arr, int size);
+void countRdxSort(int * arr, int size, int exp);
+void RadixSort(int * arr, int size);
 
 //Selection sort
 void SelectionSort(int * arr, int size);
@@ -29,7 +31,6 @@ void BubbleSort(int * arr, int size);
 void InsertionSort(int * arr, int size);
 
 //Counting sort
-
 void CountingSort(int * arr, int size);
 
 

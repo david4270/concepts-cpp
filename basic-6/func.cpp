@@ -68,7 +68,7 @@ Array given: [26,33,35,29,19,24,36]
 void MergeSort(int* arr, int left, int right){
     int middle = left + (right - left)/2;
     if(right <= left) return;
-    cout << middle << endl;
+    //cout << middle << endl;
     MergeSort(arr,left,middle);
     MergeSort(arr,middle+1,right);
     Merge(arr,left,middle,right);
@@ -167,7 +167,65 @@ void HeapSort(int * arr, int size){
     
 }
 
-//Radix sort
+/*
+<<Radix sort>> Reference: https://www.geeksforgeeks.org/radix-sort/
+Array given: [32,56,23,16,48,72,88,160,21]
+0) Get the most significant digit -> 3 (160)
+1) sort by least significant digit
+[160,21,32,72,23,56,16,48,88]
+2) sort by second least significant digit
+[16,21,23,32,48,56,160,72,88]
+3) sort by third least significant digit
+[16,21,23,32,48,56,72,88,160]
+*/
+
+int getMaxSig(int* arr, int size){
+    int maxi = arr[0];
+    for(int i=1; i<size; i++){
+        if(arr[i] > maxi){
+            maxi = arr[i];
+        }
+    }
+    return maxi;
+}
+
+//Counting sort modified for radix sort
+void countRdxSort(int * arr, int size, int exp){
+    int max = 10;
+    int * c = new int [max]();
+    int * b = new int [size]();
+
+    for(int j=0; j<size; j++){
+        c[(arr[j]/exp)%10] = c[(arr[j]/exp)%10] + 1;
+    }
+    
+    for(int i=1; i<max; ++i){
+        c[i] = c[i] + c[i-1];
+    }
+
+    for(int j = size-1; j >= 0; j--){
+        b[c[(arr[j]/exp)%10]-1] = arr[j];
+        c[(arr[j]/exp)%10] = c[(arr[j]/exp)%10] - 1;
+    }
+
+    for(int j=0; j<size; j++){
+        arr[j] = b[j];
+    }
+    
+    delete [] c;
+    c = NULL;
+}
+
+void RadixSort(int * arr, int size){
+    int maxi = getMaxSig(arr,size);
+    for (int exp = 1; maxi/exp > 0; exp *=10){
+        countRdxSort(arr,size,exp);
+        for(int i = 0; i < size; i++){
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+}
 
 
 /*
