@@ -1,4 +1,4 @@
-//Binary search tree
+//Binary search tree of numbers
 
 #include <iostream>
 #include "func.h"
@@ -6,6 +6,8 @@
 using namespace std;
 
 int main(){
+
+    
     return 0;
 }
 

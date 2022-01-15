@@ -7,7 +7,7 @@ Project topics can be changed in planning stage.
 
 **[planned]** - planned exercise
 
-[need details] - will be updated with specifics
+[need details] - will be updated with details
 
 ## **Basic**
 Folders with 'basic' prefix have micro projects with basic C++ concepts and practices. Used concepts from second year introductory programming course (ECE244).
@@ -22,9 +22,9 @@ Folders with 'basic' prefix have micro projects with basic C++ concepts and prac
 
 **_basic-5_**: operator overloading with complex number
 
-**_basic-6_**: recursive sorting algorithm(s) **[WIP]**[need details]
+**_basic-6_**: recursive sorting algorithm(s)
 
-basic-7: binary search tree **[planned]**[need details]
+**_basic-7_**: binary search tree of numbers **[planned]**
 
 basic-8: inheritance **[planned]**[need details]
 
