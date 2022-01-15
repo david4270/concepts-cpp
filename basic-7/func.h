@@ -34,6 +34,7 @@ class BST{
         ~BST();
 
         BST& operator=(const BST & rhs);
+        void copy(Node * ptr, Node * rhsptr);
 
         void Insert(int k);
         void Delete(int k);
@@ -44,11 +45,11 @@ class BST{
         void clear();
         void delete_tree(Node * rt);
 
-        void print() const;
+        Node* gethead();
 
-        void inorderTraversal();
-        void preorderTraversal();
-        void postorderTraversal();
+        void inorderTraversal(Node * rt);
+        void preorderTraversal(Node * rt);
+        void postorderTraversal(Node * rt);
 };
 
 #endif
