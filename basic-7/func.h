@@ -35,16 +35,20 @@ class BST{
 
         BST& operator=(const BST & rhs);
 
-        bool Insert(int k);
-        bool Delete(int k);
+        void Insert(int k);
+        void Delete(int k);
+        bool Search(Node * ptr, int k);
+
+        void insert_tree(Node * ptr, int k);
 
         void clear();
+        void delete_tree(Node * rt);
 
         void print() const;
 
-        void inorderTraversal(BST* a);
-        void preorderTraversal(BST* a);
-        void postorderTraversal(BST* a);
+        void inorderTraversal();
+        void preorderTraversal();
+        void postorderTraversal();
 };
 
 #endif

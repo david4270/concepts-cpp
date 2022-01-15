@@ -45,6 +45,11 @@ intermediate-4: graph **[planned]**[need details]
 
 intermediate-5: graph traversal **[planned]**[need details]
 
+## **Problems**
+Solve questions from question banks like Leetcode
+
+problem-1: 
+
 ## **Project**
 Folders with resume-level projects. Might make separated repository for each project. Will be updated once I feel like I am prepared enough to initiate project, and have some project idea.
 
