@@ -26,7 +26,7 @@ Folders with 'basic' prefix have micro projects with basic C++ concepts and prac
 
 **_basic-7_**: binary search tree of numbers
 
-**_basic-8_**: inheritance - price of products, parts and subparts **[planned]**
+**_basic-8_**: inheritance - products, parts and subparts **[planned]**
 
 basic-9: hash table - name of different people **[planned]**
 

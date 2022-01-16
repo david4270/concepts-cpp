@@ -1,4 +1,4 @@
-//Inheritance Basic
+//Inheritance Basic -  products, parts and subparts
 
 #include <iostream>
 #include "func.h"
