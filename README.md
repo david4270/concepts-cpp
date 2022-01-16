@@ -26,7 +26,7 @@ Folders with 'basic' prefix have micro projects with basic C++ concepts and prac
 
 **_basic-7_**: binary search tree of numbers
 
-**_basic-8_**: inheritance - products, parts and subparts **[planned]**
+**_basic-8_**: inheritance - advanced personal information **[WIP]**
 
 basic-9: hash table - name of different people **[planned]**
 
@@ -44,6 +44,10 @@ intermediate-3: templates and STL containers **[planned]**[need details]
 intermediate-4: graph **[planned]**[need details]
 
 intermediate-5: graph traversal **[planned]**[need details]
+
+intermediate-6: system calls **[planned]**[need details]
+
+intermediate-7: threads **[planned]**[need details]
 
 ## **Problems**
 Solve questions from question banks like Leetcode
