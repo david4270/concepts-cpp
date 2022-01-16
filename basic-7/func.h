@@ -37,15 +37,18 @@ class BST{
         void copy(Node * ptr, Node * rhsptr);
 
         void Insert(int k);
-        void Delete(int k);
-        bool Search(Node * ptr, int k);
-
-        void insert_tree(Node * ptr, int k);
+        void insert_elem(Node * ptr, int k);
+        Node* delete_elem(Node * ptr,int k);
+        bool search_elem(Node * ptr, int k);
 
         void clear();
         void delete_tree(Node * rt);
 
         Node* gethead();
+        void sethead(Node* ptr);
+
+        Node* findMaximum(Node * ptr);
+        Node* findMinimum(Node * ptr);
 
         void inorderTraversal(Node * rt);
         void preorderTraversal(Node * rt);

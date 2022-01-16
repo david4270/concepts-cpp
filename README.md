@@ -24,11 +24,11 @@ Folders with 'basic' prefix have micro projects with basic C++ concepts and prac
 
 **_basic-6_**: recursive sorting algorithm(s)
 
-**_basic-7_**: binary search tree of numbers **[WIP]**
+**_basic-7_**: binary search tree of numbers
 
-basic-8: inheritance **[planned]**[need details]
+**_basic-8_**: inheritance - price of products, parts and subparts **[planned]**
 
-basic-9: hash table **[planned]**[need details]
+basic-9: hash table - name of different people **[planned]**
 
 basic-10: exceptions **[planned]**[need details]
 

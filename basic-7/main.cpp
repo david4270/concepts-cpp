@@ -7,6 +7,7 @@ using namespace std;
 
 int main(){
     int opr, num;
+    bool toEnd = false;
     BST tree;
     while(1){
         cout << "1) Insert 2) Search 3) Delete 4) Clear " << endl;
@@ -14,46 +15,37 @@ int main(){
         cout << "Insert operation: ";
         cin >> opr;
 
-        if(opr == 1){
-            cout << "Number to insert: ";
-            cin >> num;
-            tree.Insert(num);
+        switch(opr){
+            case 1:
+                cout << "Number to insert: ";
+                cin >> num;
+                tree.Insert(num);
+                break;
+            case 2:
+                cout << "Number to search: ";
+                cin >> num;
+                if(tree.search_elem(tree.gethead(),num)){
+                    cout << num << " is found" << endl;
+                }
+                else{
+                    cout << num << " not found" << endl;
+                }
+                break;
+            case 3:
+                cout << "Number to delete: ";
+                cin >> num;
+                tree.sethead(tree.delete_elem(tree.gethead(),num));
+                break;
+            case 4: tree.clear(); break;
+            case 5: tree.inorderTraversal(tree.gethead()); break;
+            case 6: tree.preorderTraversal(tree.gethead()); break;
+            case 7: tree.postorderTraversal(tree.gethead()); break;
+            default: toEnd = true; break;
         }
-        else if(opr == 2){
-            cout << "Number to search: ";
-            cin >> num;
-            if(tree.Search(tree.gethead(),num)){
-                cout << num << " is found" << endl;
-            }
-            else{
-                cout << num << " not found" << endl;
-            }
-        }
-        else if(opr == 3){
-            cout << "Number to delete: ";
-            cin >> num;
-            //tree.Delete(num);
-        }
-        else if(opr == 4){
-            //tree.clear();
-            tree.delete_tree(tree.gethead());
-        }
-        else if(opr == 5){
-            tree.inorderTraversal(tree.gethead());
-        }   
-        else if(opr == 6){
-            tree.preorderTraversal(tree.gethead());
-        }
-        else if(opr == 7){
-            tree.postorderTraversal(tree.gethead());
-        }
-        else{
-            break;
-        }
+        if (toEnd) break;
     }
 
     tree.clear();
-    
     return 0;
 }
 
