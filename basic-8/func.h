@@ -15,6 +15,7 @@ class PersonalInfo{
         bool isMarried;
     public:
         PersonalInfo();
+        PersonalInfo(string n, int y, int m, int d, bool ism);
         PersonalInfo(PersonalInfo & rhs);
         ~PersonalInfo();
         
@@ -39,6 +40,7 @@ class AdditionalInfo: public PersonalInfo{
         char sex;
     public:
         AdditionalInfo();
+        AdditionalInfo(string nm, int y, int m, int d, bool ism, string ma, string ad, char sx);
         AdditionalInfo(AdditionalInfo & rhs);
         ~AdditionalInfo();
 
@@ -55,29 +57,14 @@ class AdditionalInfo: public PersonalInfo{
     
 };
 
-class FullContact: public AdditionalInfo, public PhoneInfo{
-    private:
-        string phoneNumber;
-    public:
-        FullContact();
-        FullContact(FullContact & rhs);
-        ~FullContact();
-
-        void setFullContact(string nm, int y, int m, int d, bool ism, string ma, string ad, char sx, string mo, string im, string pn);
-        void setphoneNumber(string pn);
-
-        string getphoneNumber();
-
-        void print() const;
-    
-};
-
+//All IMEIs used are completely fictional
 class PhoneInfo {
     private:
         string model;
         string IMEI;
     public:
         PhoneInfo();
+        PhoneInfo(string mo, string im);
         PhoneInfo(PhoneInfo & rhs);
         ~PhoneInfo();
 
@@ -91,5 +78,25 @@ class PhoneInfo {
         void print() const;
 
 };
+
+class FullContact: public AdditionalInfo, public PhoneInfo{
+    private:
+        string phoneNumber;
+    public:
+        FullContact();
+        FullContact(string nm, int y, int m, int d, bool ism, string ma, string ad, char sx, string mo, string im, string pn);
+        FullContact(FullContact & rhs);
+        ~FullContact();
+
+        void setFullContact(string nm, int y, int m, int d, bool ism, string ma, string ad, char sx, string mo, string im, string pn);
+        void setphoneNumber(string pn);
+
+        string getphoneNumber();
+
+        void print() const;
+    
+};
+
+
 
 #endif

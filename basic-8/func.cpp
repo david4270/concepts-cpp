@@ -12,6 +12,14 @@ PersonalInfo::PersonalInfo(){
     isMarried = false;
 }
 
+PersonalInfo::PersonalInfo(string n, int y, int m, int d, bool ism){
+    name = n;
+    birthYear = y;
+    birthMonth = m;
+    birthDay = d;
+    isMarried = ism; 
+}
+
 PersonalInfo::PersonalInfo(PersonalInfo & rhs){
     name = rhs.name;
     birthYear = rhs.birthYear;
@@ -67,7 +75,7 @@ bool PersonalInfo::getisMarried(){
 }
 
 void PersonalInfo::print() const{
-    cout << "Name: " << name <<", Birthday: " << birthYear <<"/" << birthMonth << "/" << birthDay;
+    cout << "Name: " << name <<", Birthday: " << birthYear <<"/" << birthMonth << "/" << birthDay << ", ";
     if(isMarried){
         cout << "Married: Yes" << endl;
     }
@@ -82,7 +90,14 @@ AdditionalInfo::AdditionalInfo(){
     emailAddr = "";
     address = "";
     sex = 0;
-}   
+}  
+
+AdditionalInfo::AdditionalInfo(string nm, int y, int m, int d, bool ism, 
+                                string ma, string ad, char sx): PersonalInfo(nm, y, m, d, ism){
+    emailAddr = ma;
+    address = ad;
+    sex = sx;
+}
 
 AdditionalInfo::AdditionalInfo(AdditionalInfo & rhs): PersonalInfo(rhs){
     emailAddr = rhs.emailAddr;
@@ -94,7 +109,8 @@ AdditionalInfo::~AdditionalInfo(){
 
 }
 
-void AdditionalInfo::setAddInfo(string nm, int y, int m, int d, bool ism, string ma, string ad, char sx){
+void AdditionalInfo::setAddInfo(string nm, int y, int m, int d, bool ism, 
+                                string ma, string ad, char sx){
     setInfo(nm, y, m, d, ism);
     emailAddr = ma;
     address = ad;
@@ -133,6 +149,12 @@ FullContact::FullContact(){
     phoneNumber = "";
 }
 
+FullContact::FullContact(string nm, int y, int m, int d, bool ism, string ma, 
+                                string ad, char sx, string mo, string im, string pn)
+                                :AdditionalInfo(nm, y, m, d, ism, ma, ad, sx), PhoneInfo(mo,im){
+    phoneNumber = pn;
+}
+
 FullContact::FullContact(FullContact & rhs): AdditionalInfo(rhs), PhoneInfo(rhs){
     phoneNumber = rhs.phoneNumber;
 }
@@ -141,7 +163,8 @@ FullContact::~FullContact(){
 
 }
 
-void FullContact::setFullContact(string nm, int y, int m, int d, bool ism, string ma, string ad, char sx, string mo, string im, string pn){
+void FullContact::setFullContact(string nm, int y, int m, int d, bool ism, string ma, 
+                                string ad, char sx, string mo, string im, string pn){
     setAddInfo(nm, y, m, d, ism, ma, ad, sx);
     setPhoneInfo(mo,im);
     phoneNumber = pn;
@@ -166,6 +189,10 @@ void FullContact::print() const{
 PhoneInfo::PhoneInfo(){
     model = "";
     IMEI = "";
+}
+PhoneInfo::PhoneInfo(string mo, string im){
+    model = mo;
+    IMEI = im;
 }
 PhoneInfo::PhoneInfo(PhoneInfo & rhs){
     model = rhs.model;

@@ -6,6 +6,11 @@
 using namespace std;
 
 int main(){
+
+    FullContact David("David Song", 1999, 7, 24, false,"david990724@gmail.com",
+                    "29 Galleria Parkway, Thornhill, ON", 'M',"Galaxy Note 10+",
+                    "2356326462354234523","647-807-2473");
+    David.print();
     return 0;
 }
 
