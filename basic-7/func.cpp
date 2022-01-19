@@ -216,7 +216,7 @@ void BST::clear(){
     head = NULL;
 }
 
-//subfunction of clear
+//subfunction of clear - https://www.geeksforgeeks.org/write-a-c-program-to-delete-a-tree/
 void BST::delete_tree(Node * rt){
     if(rt == NULL) return;
 
