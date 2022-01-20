@@ -227,3 +227,12 @@ void PhoneInfo::print() const{
     cout << "IMEI: " << IMEI << endl;
 }
 
+/* 
+<Level of inheritance in this project>
+
+PersonalInfo  -->  AdditionalInfo  --> 
+                                        FullContact
+                    PhoneInfo      -->
+
+Multiple, multi-level inheritance
+*/
