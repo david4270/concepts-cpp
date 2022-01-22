@@ -1,7 +1,27 @@
 #include <iostream>
+#include <ctime>
 #include "func.h"
 
 using namespace std;
+
+int returnAge(int yr, int mo, int day){
+    int todayYr, todayMo, todayDy, age;
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+    todayYr = 1900 + ltm->tm_year;
+    todayMo = 1 + ltm->tm_mon;
+    todayDy = ltm->tm_mday;
+    age = todayYr - yr;
+    if(mo > todayMo){
+        age--;
+    }
+    else if(mo == todayMo){
+        if(day > todayDy){
+            age--;
+        }
+    }
+    return age;
+}
 
 /****** PersonalInfo class ******/
 PersonalInfo::PersonalInfo(){
@@ -9,6 +29,7 @@ PersonalInfo::PersonalInfo(){
     birthYear = 1900;
     birthMonth = 1;
     birthDay = 1;
+    age = returnAge(1900,1,1);
     isMarried = false;
 }
 
@@ -17,6 +38,7 @@ PersonalInfo::PersonalInfo(string n, int y, int m, int d, bool ism){
     birthYear = y;
     birthMonth = m;
     birthDay = d;
+    age = returnAge(y,m,d);
     isMarried = ism; 
 }
 
@@ -25,6 +47,7 @@ PersonalInfo::PersonalInfo(PersonalInfo & rhs){
     birthYear = rhs.birthYear;
     birthMonth = rhs.birthMonth;
     birthDay = rhs.birthDay;
+    age = rhs.age;
     isMarried = rhs.isMarried;
 }
 
@@ -37,6 +60,7 @@ void PersonalInfo::setInfo(string n, int y, int m, int d, bool ism){
     birthYear = y;
     birthMonth = m;
     birthDay = d;
+    age = returnAge(y,m,d);
     isMarried = ism;
 }
 
@@ -48,6 +72,7 @@ void PersonalInfo::setBirthday(int y, int m, int d){
     birthYear = y;
     birthMonth = m;
     birthDay = d;
+    age = returnAge(y,m,d);
 }
 
 void PersonalInfo::setMarried(bool ism){
@@ -70,12 +95,16 @@ int PersonalInfo::getbirthDay(){
     return birthDay;
 }
 
+int PersonalInfo::getAge(){
+    return age;
+}
+
 bool PersonalInfo::getisMarried(){
     return isMarried;
 }
 
 void PersonalInfo::print() const{
-    cout << "Name: " << name <<", Birthday: " << birthYear <<"/" << birthMonth << "/" << birthDay << ", ";
+    cout << "Name: " << name <<", Birthday: " << birthYear <<"/" << birthMonth << "/" << birthDay << ", age: " << age << ", ";
     if(isMarried){
         cout << "Married: Yes" << endl;
     }

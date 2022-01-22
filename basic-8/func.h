@@ -6,12 +6,15 @@
 
 using namespace std;
 
+int returnAge(int yr, int mo, int day);
+
 class PersonalInfo{
     private:
         string name;
         int birthYear;
         int birthMonth;
         int birthDay;
+        int age;
         bool isMarried;
     public:
         PersonalInfo();
@@ -28,6 +31,7 @@ class PersonalInfo{
         int getbirthYear();
         int getbirthMonth();
         int getbirthDay();
+        int getAge();
         bool getisMarried();
 
         void print() const;

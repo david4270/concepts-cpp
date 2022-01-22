@@ -24,6 +24,11 @@ int main(){
     Sample.print();
     David.print();
 
+    FullContact SamplePerson("Sample Person", 1999, 1, 21, false,"sample@gmail.com",
+                    "1 Canada Road, Toronto, ON", 'M',"iPhone 3GS",
+                    "2356326462354234523","647-111-1111");
+    SamplePerson.print();
+
     //I guess it is fine to keep it like this. It contains my personal information - but not private ones.
     //As I have mentioned in func.h, IMEIs are fictional
     //Of course Peter Parker is a fictional character. You don't know who he is though. Do you? Then you are lying.
