@@ -17,7 +17,11 @@ class PersonName{
         ~PersonName();
 
         void setName(string nm);
+        void setNext(PersonName * nxt);
+
         string getName();
+        int getKey();
+        PersonName * getNext();
 
         void print() const;
 };
@@ -35,9 +39,7 @@ class HashTable{
         bool deleteElement(string nm);
 
         void printTable();
-        bool deleteTable();
-
-
+        void deleteTable();
 };
 
 

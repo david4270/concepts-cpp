@@ -1,4 +1,4 @@
-//Hash tables WITHOUT STL functions
+//Hash tables WITHOUT STL functions - chaining
 
 #include <iostream>
 #include "func.h"
@@ -6,8 +6,18 @@
 using namespace std;
 
 int main(){
-    PersonName David("David Song");
-    David.print();
+    HashTable names;
+    names.insertElement("David Song");
+    names.insertElement("Ian Webster");
+    names.insertElement("Jun Ho Sung");
+    names.printTable();
+    names.insertElement("Yixin Tian");
+    names.printTable();
+    names.insertElement("Mymy Tran");
+    names.printTable();
+    names.deleteElement("David Song");
+    names.printTable();
+
     return 0;
 }
 
