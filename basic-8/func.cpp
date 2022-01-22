@@ -4,6 +4,9 @@
 
 using namespace std;
 
+//<ctime> can return real-time data
+//https://www.tutorialspoint.com/cplusplus/cpp_date_time.htm
+
 int returnAge(int yr, int mo, int day){
     int todayYr, todayMo, todayDy, age;
     time_t now = time(0);
