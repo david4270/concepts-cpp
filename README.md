@@ -28,9 +28,9 @@ Folders with 'basic' prefix have micro projects with basic C++ concepts and prac
 
 **_basic-8_**: inheritance - advanced personal information
 
-**_basic-9_**: hash table - name of different people **[WIP]**
+**_basic-9_**: hash table - name of different people
 
-basic-10: exceptions **[planned]**[need details]
+**_basic-10_**: exceptions **[planned]**[need details]
 
 ## **Intermediate**
 Folders with 'intermediate' prefix have mini projects with intermediate C++ concepts and practices.
