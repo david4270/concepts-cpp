@@ -1,4 +1,4 @@
-//Hash tables
+//Hash tables WITHOUT STL functions
 
 #include <iostream>
 #include "func.h"
