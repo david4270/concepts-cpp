@@ -6,6 +6,8 @@
 using namespace std;
 
 int main(){
+    PersonName David("David Song");
+    David.print();
     return 0;
 }
 
