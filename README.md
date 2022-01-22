@@ -30,12 +30,12 @@ Folders with 'basic' prefix have micro projects with basic C++ concepts and prac
 
 **_basic-9_**: hash table - name of different people
 
-**_basic-10_**: exceptions **[planned]**[need details]
+**_basic-10_**: exception handling - age limit in Ontario and string input exception handling
 
 ## **Intermediate**
 Folders with 'intermediate' prefix have mini projects with intermediate C++ concepts and practices.
 
-intermediate-1: inheritance project **[planned]**[need details]
+**_intermediate-1_**: inheritance project **[WIP]**[need details]
 
 intermediate-2: inheritance & binary search tree project **[planned]**[need details]
 
