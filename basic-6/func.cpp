@@ -183,11 +183,13 @@ void heapify(int * arr, int size, int idx){
 }
 
 void HeapSort(int * arr, int size){
+    //Building heap
     //Rearrange array (Rearrange) - except bottom of the heap
     for(int i = (size/2)-1; i>=0 ; i--){
         heapify(arr,size,i);
     }
 
+    //'Delete' maximum element from heap - will not be moved later part of heapsort
     for(int i = size-1; i>0; i--){
         //Move maximum to the end of the array (Swap)
         swap(arr[0],arr[i]);
@@ -289,8 +291,8 @@ void SelectionSort(int * arr, int size){
         }
         swap(arr[minidx], arr[i]);
 
-        for(int i = 0; i < size; i++){
-            cout << arr[i] << " ";
+        for(int m = 0; m < size; m++){
+            cout << arr[m] << " ";
         }
         cout << endl;
     }
