@@ -45,6 +45,9 @@ void QuickSort(int* arr, int left, int right){
 int SelectAndShuffule(int * arr, int left, int right){
     int ls = left;
     int tmp;
+
+    //For each i from left+1 to right, if arr[i] <= arr[left]
+    //move ls(pivot) by 1, and swap arr[i] and arr[ls]
     for(int i = left+1; i <= right; ++i){
         if(arr[i] <= arr[left]){
             ls = ls+1;
@@ -53,12 +56,13 @@ int SelectAndShuffule(int * arr, int left, int right){
             arr[ls] = tmp;
         }
     }
+
+    //After traversal, swap arr[left] and arr[ls]
     tmp = arr[left];
     arr[left] = arr[ls];
     arr[ls] = tmp;
 
-    
-
+    //return ls as pivot
     return ls;
 }
 
@@ -90,40 +94,51 @@ void Merge(int* arr, int left, int middle, int right){
     int rgtptr = 0;
     int arrptr = left;
     
+    //Left to middle - copy left array
     for(int i = 0; i < middle-left+1; i++){
         lftarr[i] = arr[left+i];
     }
 
+    //middle to right - copy right array
     for(int i = 0; i < right-middle; i++){
         rgtarr[i] = arr[middle+1+i];
     }
 
+    //while lftptr (left pointer) < middle-left+1 and rgtptr (right pointer) < right-middle
     while((lftptr < (middle-left+1)) && (rgtptr < (right-middle))){
+
+        //if lftarr[lftptr] <= rgtarr[rgtptr], fill arr[arrptr] from left array, and add 1 to lftptr
         if(lftarr[lftptr] <= rgtarr[rgtptr]){
             cout << lftarr[lftptr] << " ";
             arr[arrptr] = lftarr[lftptr];
             lftptr++;
         }
+        //if lftarr[lftptr] > rgtarr[rgtptr]. fill arr[arrptr] from right array, and add 1 to rgtptr
         else{
             cout << rgtarr[rgtptr] << " ";
             arr[arrptr] = rgtarr[rgtptr];
             rgtptr++;
         }
+        //Anyway...add arrptr
         arrptr++;
     }
-
+    //when lftarr remains, add lftarr elements to array
     while(lftptr < (middle-left+1)){
         cout << lftarr[lftptr] << " ";
         arr[arrptr] = lftarr[lftptr];
         arrptr++;
         lftptr++;
     }
+    //when rgtarr remains, add rgtarr elements to array
     while(rgtptr < (right-middle)){
         cout << rgtarr[rgtptr] << " ";
         arr[arrptr] = rgtarr[rgtptr];
         arrptr++;
         rgtptr++;
     }
+
+    //Since merge is performed from one-element arrays, array is being automatically sorted in merging process
+
     cout << endl;
 
     delete [] lftarr;
@@ -147,6 +162,7 @@ Array given: [26,33,35,29,19,24,36]
 */
 
 void heapify(int * arr, int size, int idx){
+    //Set maximum element
     int maxi = idx;
     if(idx*2+1 < size && arr[idx*2+1] > arr[maxi]){
         maxi = idx*2+1;
@@ -164,13 +180,10 @@ void heapify(int * arr, int size, int idx){
 
         heapify(arr,size,maxi);
     }
-
-    
-
 }
 
 void HeapSort(int * arr, int size){
-    //Rearrange array (Rearrange)
+    //Rearrange array (Rearrange) - except bottom of the heap
     for(int i = (size/2)-1; i>=0 ; i--){
         heapify(arr,size,i);
     }
