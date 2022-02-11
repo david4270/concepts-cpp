@@ -11,14 +11,13 @@ using namespace std;
 
 class Edge{
     private:
-        Node* start;
-        Node* end;
+        int startNodeID;
+        int endNodeID;
         int edgeID;
-
-        
+        bool oneDir;
+        double length;
     public:
-        Edge();
-        Edge(Node * st, Node * ed, int id);
+        Edge(int sid, int eid, int id, bool oneway);
         ~Edge();
 
 };
@@ -27,8 +26,7 @@ class Road: public Edge{
     private:
         string Type;
     public:
-        Road();
-        Road(Node * st, Node * ed, int id, string tp);
+        Road(int sid, int eid, int id, bool oneway, string tp);
         ~Road();
 };
 
@@ -36,8 +34,7 @@ class Rail: public Edge{
     private:
         string Type;
     public:
-        Rail();
-        Rail(Node * st, Node * ed, int id, string tp);
+        Rail(int sid, int eid, int id, bool oneway, string tp);
         ~Rail();
 };
 
@@ -49,16 +46,17 @@ class Node{
         double yCoord;
         int nodeID;
     public:
-        Node();
         Node(double x, double y, int id); 
         ~Node();
+
+        //input nodeID, output xCoord and yCoord pair
+        
 };
 
 class NodeFeature: public Node{
     private:
         string Type;
     public:
-        NodeFeature();
         NodeFeature(double x, double y, int id, string tp);
         ~NodeFeature();
 };
@@ -70,5 +68,7 @@ class Graph{
     int numNodes;
 
 };
+
+/********** Functions **********/
 
 #endif
