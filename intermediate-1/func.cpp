@@ -12,6 +12,7 @@ Edge::Edge(int sid, int eid, int id, bool oneway){
     endNodeID = eid;
     edgeID = id;
     oneDir = oneway;
+
 }
 
 Edge::~Edge(){
