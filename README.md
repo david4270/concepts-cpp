@@ -35,19 +35,17 @@ Folders with 'basic' prefix have micro projects with basic C++ concepts and prac
 ## **Intermediate**
 Folders with 'intermediate' prefix have mini projects with intermediate C++ concepts and practices.
 
-**_intermediate-1_**: inheritance project **[WIP]**[need details]
+**_intermediate-1_**: inheritance project + graph = minimap! **[WIP]**
 
-intermediate-2: inheritance & binary search tree project **[planned]**[need details]
+intermediate-2: graph traversal - build from intermediate-1, implement graph traversal algorithms **[planned]**[need details]
 
-intermediate-3: templates and STL containers **[planned]**[need details]
+intermediate-3: inheritance & binary search tree project **[planned]**[need details]
 
-intermediate-4: graph **[planned]**[need details]
+intermediate-4: templates and STL containers **[planned]**[need details]
 
-intermediate-5: graph traversal **[planned]**[need details]
+intermediate-5: system calls **[planned]**[need details]
 
-intermediate-6: system calls **[planned]**[need details]
-
-intermediate-7: threads **[planned]**[need details]
+intermediate-6: threads **[planned]**[need details]
 
 ## **Problems**
 Solve questions from question banks like Leetcode
