@@ -42,6 +42,10 @@ int Edge::getID(){
     return edgeID;
 }
 
+void Edge::setLength(double len){
+    length = len;
+}
+
 Road::Road(int sid, int eid, int id, bool oneway, string tp): Edge(sid,eid,oneway,id){
     Type = tp;
 }
@@ -116,6 +120,14 @@ void Graph::addNode(double x, double y, int id){
 // Have to check if 1) the id already exists and 2) startid and endid exists
 void Graph::addEdge(int sid, int eid, int id, bool oneway){
     Edge toPush(sid,eid,id,oneway);
+    Node start = findNode(sid);
+    Node end = findNode(eid);
+    start.addInitEdgeID(id);
+    pair<double,double> startXY = start.getXY();
+    pair<double,double> endXY = end.getXY();
+    double len = sqrt(pow(endXY.first - startXY.first,2)+pow(endXY.second - startXY.second,2));
+    toPush.setLength(len);
+
     listEdges.push_back(toPush);
 }
 

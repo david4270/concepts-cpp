@@ -31,6 +31,7 @@ class Edge{
 
         void printEdgeData();
         int getID();
+        void setLength(double len);
 
 
 };
