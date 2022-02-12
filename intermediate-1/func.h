@@ -3,8 +3,15 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <cmath>
+#include <list>
 
 using namespace std;
+
+//change int to typedefs later!
+typedef int edgeIdx;
+typedef int nodeIdx;
 
 
 /********** Edge **********/
@@ -19,6 +26,12 @@ class Edge{
     public:
         Edge(int sid, int eid, int id, bool oneway);
         ~Edge();
+
+        pair<int,int> getStartEndNodeID();
+
+        void printEdgeData();
+        int getID();
+
 
 };
 
@@ -45,11 +58,20 @@ class Node{
         double xCoord;
         double yCoord;
         int nodeID;
+        vector<int> connectedEdgeList;
     public:
         Node(double x, double y, int id); 
         ~Node();
 
+        pair<double,double> getXY();
+        int getID();
+
+        void printNodeData();
+
+        void addInitEdgeID(int eid);
+
         //input nodeID, output xCoord and yCoord pair
+        //pair<double,double> returnCoord(int id); //Should it be located inside or outside of class?
         
 };
 
@@ -65,10 +87,30 @@ class NodeFeature: public Node{
 /********** Graph **********/
 
 class Graph{
-    int numNodes;
+    private:
+        vector<Node> listNodes;
+        vector<Edge> listEdges;
+    public:
+        Graph();
+        ~Graph();
+        void addNode(double x, double y, int id);
+        void addEdge(int sid, int eid, int id, bool oneway);
+        vector<Node> getlistNodes();
+        vector<Edge> getlistEdges();
+        void printlistNodesData();
+        void printlistEdgesData();
+
+        Node findNode(int nID);
+        Edge findEdge(int eID);
 
 };
 
 /********** Functions **********/
+
+//Load map - set up graph
+
+
+// Close map - clean up data structure
+
 
 #endif

@@ -4,6 +4,8 @@ import numpy as np
 import pandas as pd
 import os
 
+# Set up nodes and edges - save in csv
+
 current = os.getcwd()
 current2 = os.path.join(current,"intermediate-1\\")
 if(os.path.isdir(current2)):
