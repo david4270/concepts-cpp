@@ -36,6 +36,8 @@ class Edge{
 
 };
 
+/********** Edge Features Classes **********/
+
 class Road: public Edge{
     private:
         string Type;
@@ -69,12 +71,11 @@ class Node{
 
         void printNodeData();
 
-        void addInitEdgeID(int eid);
-
-        //input nodeID, output xCoord and yCoord pair
-        //pair<double,double> returnCoord(int id); //Should it be located inside or outside of class?
+        void addInitEdgeID(int edid);
         
 };
+
+/********** Node Feature Class **********/
 
 class NodeFeature: public Node{
     private:
@@ -89,20 +90,23 @@ class NodeFeature: public Node{
 
 class Graph{
     private:
-        vector<Node> listNodes;
-        vector<Edge> listEdges;
+        vector<Node *> listNodes;
+        vector<Edge *> listEdges;
     public:
         Graph();
         ~Graph();
         void addNode(double x, double y, int id);
         void addEdge(int sid, int eid, int id, bool oneway);
-        vector<Node> getlistNodes();
-        vector<Edge> getlistEdges();
+        vector<Node *> getlistNodes();
+        vector<Edge *> getlistEdges();
         void printlistNodesData();
         void printlistEdgesData();
 
-        Node findNode(int nID);
-        Edge findEdge(int eID);
+        int checkNode(int nID);
+        int checkEdge(int eID);
+
+        Node * findNode(int idx);
+        Edge * findEdge(int idx);
 
 };
 

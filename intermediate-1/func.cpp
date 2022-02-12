@@ -13,7 +13,6 @@ Edge::Edge(int sid, int eid, int id, bool oneway){
     edgeID = id;
     oneDir = oneway;
     length = 0.0;
-    //Calculate length!
 }
 
 Edge::~Edge(){
@@ -45,6 +44,8 @@ int Edge::getID(){
 void Edge::setLength(double len){
     length = len;
 }
+
+/********** Edge Features Classes **********/
 
 Road::Road(int sid, int eid, int id, bool oneway, string tp): Edge(sid,eid,oneway,id){
     Type = tp;
@@ -87,12 +88,19 @@ int Node::getID(){
 }
 
 void Node::printNodeData(){
-    cout << "X Coord: " << xCoord << ", Y Coord: " << yCoord << ", ID: " << nodeID << endl;
+    cout << "X Coord: " << xCoord << ", Y Coord: " << yCoord << ", ID: " << nodeID << " ,Edge IDs";
+    for(int ed: connectedEdgeList){
+        cout << " - " << ed;
+    }
+    cout << endl;
 }
 
-void Node::addInitEdgeID(int eid){
-    connectedEdgeList.push_back(eid);
+void Node::addInitEdgeID(int edid){
+    connectedEdgeList.push_back(edid);
 }
+
+
+/********** Node Feature Class **********/
 
 NodeFeature::NodeFeature(double x, double y, int id, string tp): Node(x, y, id){
     Type = tp;
@@ -111,38 +119,59 @@ Graph::~Graph(){
     listNodes.clear();
 }
 
-// Have to check if the id already exists
 void Graph::addNode(double x, double y, int id){
-    Node toPush(x,y,id);
+    int testIdx;
+    testIdx = checkNode(id);
+    if(testIdx >= 0){
+        cout << "Node " << id << " already exists, failed to insert" << endl;
+        return;
+    }
+    Node * toPush = new Node(x,y,id);
     listNodes.push_back(toPush);
 }
 
-// Have to check if 1) the id already exists and 2) startid and endid exists
 void Graph::addEdge(int sid, int eid, int id, bool oneway){
-    Edge toPush(sid,eid,id,oneway);
-    Node start = findNode(sid);
-    Node end = findNode(eid);
-    start.addInitEdgeID(id);
-    pair<double,double> startXY = start.getXY();
-    pair<double,double> endXY = end.getXY();
+    int startIdx, endIdx, testIdx;
+    Node * start;
+    Node * end;
+    testIdx = checkEdge(id);
+    if(testIdx >= 0){
+        cout << "Edge " << id << " already exists, failed to insert" << endl;
+        return;
+    }
+    Edge * toPush = new Edge(sid,eid,id,oneway);
+    startIdx = checkNode(sid);
+    endIdx = checkNode(eid);
+    if(startIdx >= 0 && endIdx >= 0){
+        start = findNode(startIdx);
+        end = findNode(endIdx);
+    }
+    else{
+        delete toPush;
+        cout << "Cannot insert edge " << id << endl;
+        return;
+    }
+    start->addInitEdgeID(id);
+    pair<double,double> startXY = start->getXY();
+    pair<double,double> endXY = end->getXY();
     double len = sqrt(pow(endXY.first - startXY.first,2)+pow(endXY.second - startXY.second,2));
-    toPush.setLength(len);
+    toPush->setLength(len);
 
     listEdges.push_back(toPush);
 }
 
-vector<Node> Graph::getlistNodes(){
+vector<Node *> Graph::getlistNodes(){
     return listNodes;
 }
 
-vector<Edge> Graph::getlistEdges(){
+vector<Edge *> Graph::getlistEdges(){
     return listEdges;
 }
 
 void Graph::printlistNodesData(){
     if(!listNodes.empty()){
         for(int i = 0; i < listNodes.size(); i++){
-            listNodes[i].printNodeData();
+            listNodes[i] -> printNodeData();
         }
     }
     else{
@@ -153,7 +182,7 @@ void Graph::printlistNodesData(){
 void Graph::printlistEdgesData(){
     if(!listEdges.empty()){
         for(int i = 0; i < listEdges.size(); i++){
-            listEdges[i].printEdgeData();
+            listEdges[i] -> printEdgeData();
         }
     }
     else{
@@ -161,20 +190,30 @@ void Graph::printlistEdgesData(){
     }
 }
 
-Node Graph::findNode(int nID){
-    for(Node nd: listNodes){
-        if(nd.getID() == nID){
-            return nd;
+int Graph::checkNode(int nID){
+    for(int i = 0; i < listNodes.size(); i++){
+        if(listNodes[i]->getID() == nID){
+            return i;
         }
     }
+    return -1;
 }
 
-Edge Graph::findEdge(int eID){
-    for(Edge eg: listEdges){
-        if(eg.getID() == eID){
-            return eg;
+int Graph::checkEdge(int eID){
+    for(int i = 0; i < listEdges.size(); i++){
+        if(listEdges[i]->getID() == eID){
+            return i;
         }
     }
+    return -1;
+}
+
+Node * Graph::findNode(int idx){
+    return listNodes[idx];
+}
+
+Edge * Graph::findEdge(int idx){
+    return listEdges[idx];
 }
 
 /********** Functions **********/
