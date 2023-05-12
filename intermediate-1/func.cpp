@@ -88,7 +88,7 @@ int Node::getID(){
 }
 
 void Node::printNodeData(){
-    cout << "X Coord: " << xCoord << ", Y Coord: " << yCoord << ", ID: " << nodeID << " ,Edge IDs";
+    cout << "X Coord: " << xCoord << ", Y Coord: " << yCoord << ", ID: " << nodeID << ", Edge IDs";
     for(int ed: connectedEdgeList){
         cout << " - " << ed;
     }
@@ -115,6 +115,12 @@ Graph::Graph(){
 }
 
 Graph::~Graph(){
+    for(int i = 0; i < listNodes.size(); i++){
+        delete listNodes[i];
+    }
+    for(int i = 0; i < listEdges.size(); i++){
+        delete listEdges[i];
+    }
     listEdges.clear();
     listNodes.clear();
 }
@@ -219,6 +225,57 @@ Edge * Graph::findEdge(int idx){
 /********** Functions **********/
 
 
+void nodeImport(Graph & myMap){
+    string fname = "node.csv";
+    vector<vector<string>> content;
+    vector<string> row;
+    string line, word;
 
+    fstream file(fname, ios::in);
+    if(file.is_open()){
+        while(getline(file, line)){
+            row.clear();
+            stringstream str(line);
+            while(getline(str, word, ',')){
+                row.push_back(word);
+            }
+            content.push_back(row);
+        }
+    }
+    else cout << "Cannot open " << fname << endl;
 
+    for(int i=1;i<content.size();i++){
+		myMap.addNode(stod(content[i][1]), stod(content[i][2]), stoi(content[i][0]));
+	}
+
+    //myMap.printlistNodesData();
+
+}
+
+void edgeImport(Graph & myMap){
+    string fname = "edge.csv";
+    vector<vector<string>> content;
+    vector<string> row;
+    string line, word;
+
+    fstream file(fname, ios::in);
+    if(file.is_open()){
+        while(getline(file, line)){
+            row.clear();
+            stringstream str(line);
+            while(getline(str, word, ',')){
+                row.push_back(word);
+            }
+            content.push_back(row);
+        }
+    }
+    else cout << "Cannot open " << fname << endl;
+
+    for(int i=1;i<content.size();i++){
+		myMap.addEdge(stoi(content[i][1]), stoi(content[i][2]), stoi(content[i][0]), true);
+	}
+
+    //myMap.printlistEdgesData();
+
+}
 

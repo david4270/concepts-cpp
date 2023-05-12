@@ -14,7 +14,7 @@ print(current)
 
 arr = []
 
-size = 50+1
+size = random.randint(45,100)+1
 
 for i in range(1,size):
     x = random.random()
@@ -36,7 +36,7 @@ for i in range(1,size):
         lenArr.append(len)
     #print(lenArr)
     lenArrnp = np.array(lenArr)
-    lAr = np.argsort(lenArrnp)[1:random.randint(4,6)]+1
+    lAr = np.argsort(lenArrnp)[1:random.randint(4,7)]+1
     lAr = lAr.tolist()
     #print(lAr)
     for k in lAr:
@@ -55,5 +55,5 @@ edgeData = edgeData.set_index('edgeID')
     
 print(edgeData)
 
-data.to_csv(current+'node.csv')
-edgeData.to_csv(current+'edge.csv')
+data.to_csv(current+'/node.csv')
+edgeData.to_csv(current+'/edge.csv')

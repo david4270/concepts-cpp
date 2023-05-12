@@ -7,14 +7,16 @@ using namespace std;
 
 int main(){
     Graph myMap;
-    
+
+    /*
     myMap.addNode(0.1253,0.2145,1);
     myMap.addNode(0.3464,0.7452,2);
     myMap.addNode(0.4564,0.3456,3);
     myMap.addNode(0.5634,0.4754,4);
     myMap.addNode(0.5634,0.4754,4);
     myMap.printlistNodesData();
-
+    */
+    /*
     myMap.addEdge(2,1,1,true);
     myMap.addEdge(4,2,2,true);
     myMap.addEdge(3,4,3,true);
@@ -23,7 +25,10 @@ int main(){
     myMap.addEdge(3,2,5,true);
     myMap.addEdge(5,2,6,true);
     myMap.printlistEdgesData();
-
+    */
+    
+    nodeImport(myMap);
+    edgeImport(myMap);
     myMap.printlistNodesData();
 
     return 0;

@@ -7,6 +7,10 @@
 #include <cmath>
 #include <list>
 
+#include <fstream>
+#include <string>
+#include <sstream>
+
 using namespace std;
 
 //change int to typedefs later!
@@ -32,8 +36,6 @@ class Edge{
         void printEdgeData();
         int getID();
         void setLength(double len);
-
-
 };
 
 /********** Edge Features Classes **********/
@@ -111,11 +113,13 @@ class Graph{
 };
 
 /********** Functions **********/
+void nodeImport(Graph & myMap);
+void edgeImport(Graph & myMap);
 
-//Load map - set up graph
-
-
-// Close map - clean up data structure
+//Todo
+// Seems like graph is working now
+// 1) Import edge and node data from csv files
+// 2) Add object-oriented stuff - more features to node and edge
 
 
 #endif
