@@ -1,6 +1,7 @@
 //CPP functions practice
 
 #include <iostream>
+#include <exception>
 
 using namespace std;
 
@@ -27,15 +28,22 @@ double divs(double a, double b){
 int main (){
     double a, b, f;
     int mode;
-
-    cout << "Calculator" << endl;
-    cout << "Which calculation do you want to do?" << endl;
-    cout << "1 = add, 2 = sub, 3 = mul, 4 = div" << endl;
-    cin >> mode;
-    cout << "What is your first number?" << endl;
-    cin >> a;
-    cout << "What is your second number?" << endl;
-    cin >> b;
+    try{
+        cout << "Calculator" << endl;
+        cout << "Which calculation do you want to do?" << endl;
+        cout << "1 = add, 2 = sub, 3 = mul, 4 = div" << endl;
+        cin >> mode;
+        if(mode < 1 || mode > 4) throw -1;
+        if (cin.fail()) throw -2;
+        cout << "What is your first number?" << endl;
+        cin >> a;
+        cout << "What is your second number?" << endl;
+        cin >> b;
+    }
+    catch(int & err){
+        cout << "Error: " << err << endl;
+        return err;
+    }
 
     switch(mode){
         case 1: 
